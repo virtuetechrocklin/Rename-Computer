@@ -1,12 +1,12 @@
-#Import SyncroMSP Module
+# Import SyncroMSP Module
 Import-Module $env:SyncroModule -WarningAction SilentlyContinue
 
-#Requires the following Script Variables be added in SyncroMSP
+# Requires the following Script Variables be added in SyncroMSP
 # $assetname : "Variable Type = Platform", "Vaule = {{asset_name}}"
 # $ToRestartTypeYes : "Variable Type = Runtime"
 # $NewComputerName : "Variable Type = Runtime"
 
-#Ticket Variables
+# Ticket Variables
 $ticksub = "Rename asset " + $assetname + " to " + $NewComputerName
 $tickbody = "Computer was renamed to " + $NewComputerName " via script. Please update the asset name in Syncro."
 $tickprivate = "True"
@@ -27,6 +27,6 @@ if ($ToRestartTypeYes -eq 'Yes') {
     Restart-Computer -Force
 }
 
-#Create New Ticket to Rename Asset
+# Create New Ticket to Rename Asset
 $newtick = Create-Syncro-Ticket -Subject $ticksub -IssueType "Remote Support" -Status "New"
 Create-Syncro-Ticket-Comment -TicketIdOrNumber $newtick.ticket.id -Subject "INITIAL ISSUE" -Body $tickbody -Hidden $tickprivate

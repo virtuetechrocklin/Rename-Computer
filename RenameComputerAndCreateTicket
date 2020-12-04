@@ -6,7 +6,7 @@ Import-Module $env:SyncroModule -WarningAction SilentlyContinue
 # $ToRestartTypeYes : "Variable Type = Runtime"
 # $NewComputerName : "Variable Type = Runtime"
 
-# Ticket Variables
+# Ticket Variables for the Subject and Ticket Body
 $ticksub = "Rename asset " + $assetname + " to " + $NewComputerName
 $tickbody = "Computer was renamed to " + $NewComputerName " via script. Please update the asset name in Syncro."
 $tickprivate = "True"

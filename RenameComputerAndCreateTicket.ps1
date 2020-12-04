@@ -7,8 +7,8 @@ Import-Module $env:SyncroModule -WarningAction SilentlyContinue
 # $NewComputerName : "Variable Type = Runtime"
 
 # Ticket Variables for the Subject and Ticket Body
-$ticksub = "Rename asset " + $assetname + " to " + $NewComputerName
-$tickbody = "Computer was renamed to " + $NewComputerName + " via script. Please update the asset name in Syncro."
+$ticksub = "Computer Asset Renamed - " + $assetname + " renamed to " + $NewComputerName
+$tickbody = "Computer was renamed from " + $assetname + " to " + $NewComputerName + " via script. The name will autoupdate the next time the asset refreshes."
 $tickprivate = "True"
 
 # Check if computer is domain joined
